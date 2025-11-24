@@ -1,0 +1,135 @@
+/* CSS Variables for Clean Design */
+        :root {
+            --font-primary: 'Inter', sans-serif;
+            --color-background: #efefef; /* Light grey background */
+            --color-text-dark: #1a1a1a;
+            --color-text-muted: #666666;
+            --color-divider: #666;
+            --color-card-bg: #ffffff;
+            --card-radius: 20px;
+            --image-radius: 12px;
+        }
+
+        * {
+            border-bottom: none;
+            text-decoration: none;
+        }
+
+        /* Base Body Styles */
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-background);
+            color: var(--color-text-dark);
+            margin: 0;
+            padding: 5rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Main Container for Centering and Max Width */
+        .article-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            margin: 0;
+        }
+
+        /* Article Grid Layout */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem; /* Spacing between cards */
+        }
+
+        /* Individual Article Card */
+        .article-card {
+            background-color: var(--color-card-bg);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image Wrapper */
+        .article-image-wrapper {
+            /* Padding inside the wrapper to achieve the small margin effect around the image in the card */
+            padding: 0.3rem; 
+            height: 250px; 
+            overflow: hidden;
+            background-color: transparent; /* Card background handles the edges */
+        }
+
+        .article-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            /* Placeholder style to mimic the image's appearance */
+            background-color: #d1d1d1; 
+        }
+
+        /* Content Area */
+        .article-content {
+            padding: 1.5rem 1.5rem 2rem 1.5rem;
+        }
+
+        /* Metadata (Date and Read Time) */
+        .article-meta {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem; /* 14px */
+            color: var(--color-text-muted);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .meta-divider {
+            color: var(--color-divider);
+            font-weight: 700;
+            margin: 0 0.5rem;
+        }
+
+        /* Article Title */
+        .article-title {
+            font-size: 1.25rem; /* 20px */
+            font-weight: 600;
+            line-height: 1.4;
+            letter-spacing: -0.03em;
+            margin: 0;
+            color: var(--color-text-dark);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            .article-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 2.25rem;
+            }
+            .article-image-wrapper {
+                height: 200px; 
+            }
+        }
